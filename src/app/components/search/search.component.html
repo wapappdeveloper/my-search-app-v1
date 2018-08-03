@@ -1,0 +1,80 @@
+<div class="container">
+  <div class="holder">
+    <div class="bg-top"></div>
+    <div class="bg-bottom"></div>
+    <div class="header">
+      <div class="header-holder">
+        <!--<div class="header-left disable-select" (click)="navigateTo(null)">
+          <div class="header-left-text disable-select">&#x226A;</div>
+        </div>-->
+        <div class="header-center">
+          <div class="header-message">SEARCH</div>
+        </div>
+        <div class="header-right disable-select" (click)="showOptions()">
+          <div class="header-dot"></div>
+          <div class="header-dot"></div>
+        </div>
+        <div *ngIf="options" class="options-list shadow">
+          <div class="signout options-item" (click)="signOut()">Signout</div>
+        </div>
+      </div>
+    </div>
+    <div class="wrapper">
+      <div class="blur-mask" *ngIf="planetSearchList.length>0"></div>
+      <div class="search-bar shadow">
+        <input type="text" placeholder="Enter the word to search" [(ngModel)]="searchWord" class="search" (keyup)="keyUp($event)" (keydown)="keyDown($event)">
+        <input type="button" value="SEARCH" class="button" (click)="search()">
+        <div class="loader-hoder" *ngIf="loading">
+          <div class="loader"></div>
+        </div>
+      </div>
+      <div class="fetched-list">
+        <table class="fetched-list-table">
+          <tr *ngIf="showHide">
+            <td class="alert-notfound">No Results Found</td>
+          </tr>
+          <tr *ngFor="let planetData of planetSearchList" (click)="showDetailOfSelectedPlanet(planetData)">
+            <td class="item">{{planetData.name}}</td>
+          </tr>
+        </table>
+      </div>
+      <div class="form-holder shadow" *ngIf="selectedPlanet!==null">
+        <table class="detail">
+          <tr>
+            <th class="no-border">The Selected Planet Detail</th>
+            <tr>
+              <th>Name</th>
+              <td>{{selectedPlanet.name}}</td>
+            </tr>
+            <tr>
+              <th>Population</th>
+              <td>{{selectedPlanet.population}}</td>
+            </tr>
+            <tr>
+              <th>Gravity</th>
+              <td>{{selectedPlanet.gravity}}</td>
+            </tr>
+            <tr>
+              <th>Orbital Period</th>
+              <td>{{selectedPlanet.orbital_period}}</td>
+            </tr>
+            <tr>
+              <th>Rotation Period</th>
+              <td>{{selectedPlanet.rotation_period}}</td>
+            </tr>
+            <tr>
+              <th>Surface Water</th>
+              <td>{{selectedPlanet.surface_water}}</td>
+            </tr>
+            <tr>
+              <th>Terrain</th>
+              <td>{{selectedPlanet.terrain}}</td>
+            </tr>
+        </table>
+      </div>
+      <!--<div class="footer">
+        <div class="right" (click)="navigateTo('/info')" >Info</div>
+      </div>-->
+    </div>
+  </div>
+</div>

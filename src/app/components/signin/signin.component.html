@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="holder">
+    <div class="bg-top"></div>
+    <div class="bg-bottom"></div>
+    <div class="wrapper">
+      <div class="header-holder">
+        <div class="header">
+          <div class="chat-text text-shadow">Search</div>
+          <div class="yellow-box shadow">
+            <div class="line-1"></div>
+            <div class="line-2"></div>
+            <div class="arrow"></div>
+          </div>
+        </div>
+      </div>
+      <div class="form-holder shadow">
+        <span class="label-text" [class.move-vertical-center]="data.quickChat">USERNAME</span>
+        <input required type="email" class="input-text" [(ngModel)]="data.email" name="username">
+        <span class="label-text" *ngIf="!data.quickChat">PASSWORD</span>
+        <input required type="password" class="input-text" [(ngModel)]="password" name="password">
+        <div class="button" (click)="submit()">
+          <span class="button-text">Sign In</span>
+        </div>
+      </div>
+      <div class="footer">
+        <div class="right" (click)="navigateTo('/info')" >Info</div>
+      </div>
+    </div>
+  </div>
+</div>
